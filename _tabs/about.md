@@ -105,4 +105,4 @@ Description: [Link](https://fenix.tecnico.ulisboa.pt/cursos/mma/dissertacao/2353
 
 ### Links
 
-[LinkedIn](https://www.linkedin.com/in/jonsnow7/) | [Twitter](https://twitter.com/7_snow_storm) | [Github](https://github.com/jonsnowseven) | [Website](https://jonsnowseven.github.io/digital-cv/)
+[LinkedIn](https://www.linkedin.com/in/jonsnow7/) | [Twitter](https://twitter.com/7_snow_storm) | [Github](https://github.com/jonsnowseven) | [Website](https://jonsnowseven.github.io/)
