@@ -20,9 +20,7 @@ Design and implement **recommendation systems** to improve the User experience o
 * Produce resilient, high-available and scalable systems to host ML models (e.g., APIs).
 * Support ML development by implementing Data Engineering systems
 
-## Lead Tech Engineer & ML Engineer @ [Siemens](https://www.siemens.com/global/en.html), Lisbon *(April 2021-June 2022)*
-
-## ML Engineer @ [Siemens](https://www.siemens.com/global/en.html), Lisbon *(January 2019-April 2021)*
+## Lead Tech Engineer & ML Engineer @ [Siemens](https://www.siemens.com/global/en.html), Lisbon *(January 2019-June 2022)*
 
 Design and implement detection and analytics **cloud-based ML systems for CyberSecurity**
 
