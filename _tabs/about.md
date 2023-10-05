@@ -3,10 +3,13 @@ layout: page
 title: About João Neves
 permalink: /about/
 icon: fas fa-info-circle
-order: 4
+order: 3
 ---
 
-![profile-picture](../assets/images/profile-picture.jpeg)
+<figure>
+<img src="../assets/images/profile-picture.jpeg" alt="profile-picture" style="width:100%;text-.align:center">
+<figcaption><b>João Neves</b></figcaption>
+</figure>
 
 # 👨‍💻 Professional Experience
 
@@ -76,6 +79,7 @@ Description: [Link](https://fenix.tecnico.ulisboa.pt/cursos/mma/dissertacao/2353
 | Scala      | 🟡 Average | Used in previous projects        |
 | SQL        | 🟡 Average | Used in previous projects        |
 | R          | 🟡 Average | Main language used in University |
+| Rust       | 🔴 Amateur | Only reading skills              |
 | Java       | 🔴 Amateur | Only reading skills              |
 | HTML       | 🔴 Amateur | Only reading skills              |
 | CSS        | 🔴 Amateur | Only reading skills              |
