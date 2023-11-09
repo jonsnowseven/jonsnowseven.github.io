@@ -15,13 +15,14 @@ order: 3
 
 ## Senior ML Engineer @ [Farfetch](https://www.farfetch.com/), Lisbon *(June 2022-Present)*
 
-Design and implement **recommendation systems** to improve the User experience on the Marketplace
+Design and implement **recommendation systems** to improve the User experience in the Marketplace
 
 * Successfully collaborated on developing a virtual assistant by leveraging LLMs for prompt engineering and effectively deploying it as an API.
 * Proficiently contributed to implementing and optimising a Vector Search Engine (Vespa) to enhance recommendation systems.
 * Design and implement recommendation systems to improve the User Experience
 * Produce resilient, high-available and scalable systems to host ML models (e.g., APIs).
 * Support ML development by implementing Data Engineering systems
+* **Technologies used**: Large Language Models (LLM), MLflow, PySpark, Pandas (Software), Kafka, Kubernetes, Azure Databricks,  Airflow, Python, Flask 
 
 ## Lead Tech Engineer & ML Engineer @ [Siemens](https://www.siemens.com/global/en.html), Lisbon *(January 2019-June 2022)*
 
@@ -36,7 +37,7 @@ Design and implement detection and analytics **cloud-based ML systems for CyberS
 
 ## Data Scientist/Data Engineer @ [Marionete](https://marionete.co.uk/), Lisbon *(October 2016–December 2018)*
 
-Design and implement Machine Learning use-cases
+Design and implement Machine Learning use cases
 
 * Documents indexation with search capabilities for compliance (**Technologies used**: AWS Cloud Services, Elastic Search, Python)
 * Platform to match conference attendants (**Technologies used**: Heroku, Jenkins, Python, Pandas)
