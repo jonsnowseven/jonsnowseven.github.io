@@ -1,33 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Welcome to My CV on João Neves</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content in Welcome to My CV on João Neves</description>
+    <title></title>
+    <link>//localhost:1313/</link>
+    <description>Recent content on </description>
     <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 05 Sep 2023 21:09:00 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Speed up your Python code with Rust</title>
-      <link>http://localhost:1313/blog/2023-09-05-speed-up-your-python-code-with-rust/</link>
-      <pubDate>Tue, 05 Sep 2023 21:09:00 +0100</pubDate>
-      <guid>http://localhost:1313/blog/2023-09-05-speed-up-your-python-code-with-rust/</guid>
-      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;Python is a widely used language. According to the &lt;a href=&#34;https://survey.stackoverflow.co/2023/#section-admired-and-desired-programming-scripting-and-markup-languages&#34;&gt;Stack Overflow 2023 Developer Survey&lt;/a&gt;, Python ranks second as the most desired language.&lt;/p&gt;&#xA;&lt;p&gt;Python gained popularity when it became the go-to language for statistical analysis, data transformations, and machine learning.&lt;/p&gt;&#xA;&lt;p&gt;However, Python falls short of being the most popular language when it comes to speed. Nevertheless, Python can integrate with other languages like C, Java, and Rust, which allows you to speed up your Python code. Typically, Python extensions are written in the C language, but lately, they have been extended using Rust due to its obvious rise in popularity.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Managing multiple Poetry versions</title>
-      <link>http://localhost:1313/blog/2023-08-19-managing-multiple-poetry-version/</link>
-      <pubDate>Sat, 19 Aug 2023 14:04:51 +0100</pubDate>
-      <guid>http://localhost:1313/blog/2023-08-19-managing-multiple-poetry-version/</guid>
-      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;As Machine Learning Engineers, you might deal with multiple ML projects. Since (at the time of writing),&#xA;the use of Poetry for Python dependency management is not standard and each project might have different Poetry versions, we often deal with incompatibilities across projects in our OS.&lt;/p&gt;&#xA;&lt;p&gt;Usually, the installation of Poetry is global (unless it is installed using pip in the environment which is not the recommended installation or you are using Conda).&#xA;This means that managing different Poetry versions can be a challenging task.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>About João Neves</title>
-      <link>http://localhost:1313/cv/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/cv/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/profile-picture.jpeg&#34; alt=&#34;profile-picture&#34;&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;-professional-experience&#34;&gt;👨‍💻 Professional Experience&lt;/h1&gt;&#xA;&lt;h2 id=&#34;senior-ml-engineer--farfetchhttpswwwfarfetchcom-lisbon-june-2022-present&#34;&gt;Senior ML Engineer @ &lt;a href=&#34;https://www.farfetch.com/&#34;&gt;Farfetch&lt;/a&gt;, Lisbon &lt;em&gt;(June 2022-Present)&lt;/em&gt;&lt;/h2&gt;&#xA;&lt;p&gt;Design and implement &lt;strong&gt;recommendation systems&lt;/strong&gt; to improve the User experience in the Marketplace&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Successfully collaborated on developing a virtual assistant by leveraging LLMs for prompt engineering and effectively deploying it as an API.&lt;/li&gt;&#xA;&lt;li&gt;Proficiently contributed to implementing and optimising a Vector Search Engine (Vespa) to enhance recommendation systems.&lt;/li&gt;&#xA;&lt;li&gt;Design and implement recommendation systems to improve the User Experience&lt;/li&gt;&#xA;&lt;li&gt;Produce resilient, high-available and scalable systems to host ML models (e.g., APIs).&lt;/li&gt;&#xA;&lt;li&gt;Support ML development by implementing Data Engineering systems&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Technologies used&lt;/strong&gt;: Large Language Models (LLM), MLflow, PySpark, Pandas (Software), Kafka, Kubernetes, Azure Databricks,  Airflow, Python, Flask&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;lead-tech-engineer--ml-engineer--siemenshttpswwwsiemenscomglobalenhtml-lisbon-january-2019-june-2022&#34;&gt;Lead Tech Engineer &amp;amp; ML Engineer @ &lt;a href=&#34;https://www.siemens.com/global/en.html&#34;&gt;Siemens&lt;/a&gt;, Lisbon &lt;em&gt;(January 2019-June 2022)&lt;/em&gt;&lt;/h2&gt;&#xA;&lt;p&gt;Design and implement detection and analytics &lt;strong&gt;cloud-based ML systems for CyberSecurity&lt;/strong&gt;&lt;/p&gt;</description>
-    </item>
+    <language>en</language>
+    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
