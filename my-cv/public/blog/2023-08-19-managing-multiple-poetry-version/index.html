@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Managing multiple Poetry versions | João Neves</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Motivation
+As Machine Learning Engineers, you might deal with multiple ML projects. Since (at the time of writing),
+the use of Poetry for Python dependency management is not standard and each project might have different Poetry versions, we often deal with incompatibilities across projects in our OS.
+Usually, the installation of Poetry is global (unless it is installed using pip in the environment which is not the recommended installation or you are using Conda).
+This means that managing different Poetry versions can be a challenging task.">
+    <meta name="generator" content="Hugo 0.139.5">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/blog/2023-08-19-managing-multiple-poetry-version/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/blog/2023-08-19-managing-multiple-poetry-version/">
+  <meta property="og:site_name" content="João Neves">
+  <meta property="og:title" content="Managing multiple Poetry versions">
+  <meta property="og:description" content="Motivation As Machine Learning Engineers, you might deal with multiple ML projects. Since (at the time of writing), the use of Poetry for Python dependency management is not standard and each project might have different Poetry versions, we often deal with incompatibilities across projects in our OS.
+Usually, the installation of Poetry is global (unless it is installed using pip in the environment which is not the recommended installation or you are using Conda). This means that managing different Poetry versions can be a challenging task.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2023-08-19T14:04:51+01:00">
+    <meta property="article:modified_time" content="2023-08-19T14:04:51+01:00">
+
+  <meta itemprop="name" content="Managing multiple Poetry versions">
+  <meta itemprop="description" content="Motivation As Machine Learning Engineers, you might deal with multiple ML projects. Since (at the time of writing), the use of Poetry for Python dependency management is not standard and each project might have different Poetry versions, we often deal with incompatibilities across projects in our OS.
+Usually, the installation of Poetry is global (unless it is installed using pip in the environment which is not the recommended installation or you are using Conda). This means that managing different Poetry versions can be a challenging task.">
+  <meta itemprop="datePublished" content="2023-08-19T14:04:51+01:00">
+  <meta itemprop="dateModified" content="2023-08-19T14:04:51+01:00">
+  <meta itemprop="wordCount" content="365">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Managing multiple Poetry versions">
+  <meta name="twitter:description" content="Motivation As Machine Learning Engineers, you might deal with multiple ML projects. Since (at the time of writing), the use of Poetry for Python dependency management is not standard and each project might have different Poetry versions, we often deal with incompatibilities across projects in our OS.
+Usually, the installation of Poetry is global (unless it is installed using pip in the environment which is not the recommended installation or you are using Conda). This means that managing different Poetry versions can be a challenging task.">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        João Neves
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/" title="Home page">
+              Home
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/cv/" title="CV page">
+              CV
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/blog/" title="Blog page">
+              Blog
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Blogs
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Managing multiple Poetry versions</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-08-19T14:04:51+01:00">August 19, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="motivation">Motivation</h2>
+<p>As Machine Learning Engineers, you might deal with multiple ML projects. Since (at the time of writing),
+the use of Poetry for Python dependency management is not standard and each project might have different Poetry versions, we often deal with incompatibilities across projects in our OS.</p>
+<p>Usually, the installation of Poetry is global (unless it is installed using pip in the environment which is not the recommended installation or you are using Conda).
+This means that managing different Poetry versions can be a challenging task.</p>
+<h2 id="how-to-manage-different-poetry-installations">How to manage different Poetry installations</h2>
+<p>Fortunately, using <a href="https://pypa.github.io/pipx/">pipx</a> (isolated pip) and <a href="https://makefiletutorial.com/">Makefile</a>, you can workaround and implement a solution that allows you to have multiple
+Poetry versions without conflicting with one another.</p>
+<h3 id="installing-different-poetry-versions">Installing different Poetry versions</h3>
+<ol>
+<li>Install pipx</li>
+<li>Using pipx:
+<ol>
+<li>Execute <code>pipx install --suffix &quot;@1.4&quot; poetry==1.4.2</code> and <code>pipx install --suffix &quot;@1.2&quot; poetry==1.2.0</code> in your terminal</li>
+<li>Ensure you have <code>poetry@1.4</code> and <code>poetry@1.2</code> available in your terminal</li>
+</ol>
+</li>
+</ol>
+<p>At this point, you should have different Poetry versions available in your environment</p>
+<h3 id="selecting-a-poetry-version">Selecting a Poetry version</h3>
+<p>Whenever you want to use a specific Poetry version, you can simply select the version by the suffix in the previous step: <code>poetry@1.4 install</code>.</p>
+<p>When you use Makefile, the commands usually only reference <code>poetry</code> and this selects the first Poetry version in the environment. Although, if you change the Makefile as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-makefile" data-lang="makefile"><span style="display:flex;"><span><span style="color:#75715e"># Loads .env on the same directory as the Makefile
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#960050;background-color:#1e0010">ifneq</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#e6db74">&#34;$(wildcard .env)&#34;</span><span style="color:#960050;background-color:#1e0010">,</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#960050;background-color:#1e0010">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">include</span> <span style="color:#960050;background-color:#1e0010">.env</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">endif</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>POETRY_COMMAND <span style="color:#f92672">?=</span> poetry  <span style="color:#75715e"># `POETRY_COMMAND` environment variable which defaults to `poetry`</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Run poetry commands
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">install</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  @<span style="color:#66d9ef">$(</span>POETRY_COMMAND<span style="color:#66d9ef">)</span> config virtualenvs.create true
+</span></span><span style="display:flex;"><span>  @<span style="color:#66d9ef">$(</span>POETRY_COMMAND<span style="color:#66d9ef">)</span> config virtualenvs.in-project true
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">$(</span>POETRY_COMMAND<span style="color:#66d9ef">)</span> install
+</span></span></code></pre></div><p>If you have these instructions in the Makefile of every project, you can point to different Poetry versions through <code>POETRY_COMMAND</code> env variable. Let&rsquo;s use <code>.env</code> files for that:</p>
+<pre tabindex="0"><code class="language-command-line" data-lang="command-line">&gt; cd project_1
+&gt; tree
+.
+├── app
+Makefile
+.env
+&gt; cat .env
+POETRY_COMMAND=poetry@1.4
+
+&gt; cd project_2
+&gt; tree
+.
+├── app
+Makefile
+.env
+&gt; cat .env
+POETRY_COMMAND=poetry@1.2
+</code></pre><h2 id="future-work">Future work</h2>
+<p>This workaround is enough to have multiple Poetry versions between projects. Nonetheless, a better and standard solution would be appreciated. For instance, there is a tool to manage different <a href="https://www.terraform.io/">Terraform</a> versions called <a href="https://tfswitch.warrensbox.com/">tfswitch</a>.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/orgs/python-poetry/discussions/7866#discussioncomment-5787384">Several versions of poetry at the same time?</a></li>
+<li><a href="https://tfswitch.warrensbox.com/">tfswitch</a></li>
+</ul>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
+    &copy;  João Neves 2024 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

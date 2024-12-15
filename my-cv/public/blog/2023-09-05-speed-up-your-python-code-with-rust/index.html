@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Speed up your Python code with Rust | João Neves</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Motivation
+Python is a widely used language. According to the Stack Overflow 2023 Developer Survey, Python ranks second as the most desired language.
+Python gained popularity when it became the go-to language for statistical analysis, data transformations, and machine learning.
+However, Python falls short of being the most popular language when it comes to speed. Nevertheless, Python can integrate with other languages like C, Java, and Rust, which allows you to speed up your Python code. Typically, Python extensions are written in the C language, but lately, they have been extended using Rust due to its obvious rise in popularity.">
+    <meta name="generator" content="Hugo 0.139.5">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/blog/2023-09-05-speed-up-your-python-code-with-rust/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/blog/2023-09-05-speed-up-your-python-code-with-rust/">
+  <meta property="og:site_name" content="João Neves">
+  <meta property="og:title" content="Speed up your Python code with Rust">
+  <meta property="og:description" content="Motivation Python is a widely used language. According to the Stack Overflow 2023 Developer Survey, Python ranks second as the most desired language.
+Python gained popularity when it became the go-to language for statistical analysis, data transformations, and machine learning.
+However, Python falls short of being the most popular language when it comes to speed. Nevertheless, Python can integrate with other languages like C, Java, and Rust, which allows you to speed up your Python code. Typically, Python extensions are written in the C language, but lately, they have been extended using Rust due to its obvious rise in popularity.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2023-09-05T21:09:00+01:00">
+    <meta property="article:modified_time" content="2023-09-05T21:09:00+01:00">
+
+  <meta itemprop="name" content="Speed up your Python code with Rust">
+  <meta itemprop="description" content="Motivation Python is a widely used language. According to the Stack Overflow 2023 Developer Survey, Python ranks second as the most desired language.
+Python gained popularity when it became the go-to language for statistical analysis, data transformations, and machine learning.
+However, Python falls short of being the most popular language when it comes to speed. Nevertheless, Python can integrate with other languages like C, Java, and Rust, which allows you to speed up your Python code. Typically, Python extensions are written in the C language, but lately, they have been extended using Rust due to its obvious rise in popularity.">
+  <meta itemprop="datePublished" content="2023-09-05T21:09:00+01:00">
+  <meta itemprop="dateModified" content="2023-09-05T21:09:00+01:00">
+  <meta itemprop="wordCount" content="1899">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Speed up your Python code with Rust">
+  <meta name="twitter:description" content="Motivation Python is a widely used language. According to the Stack Overflow 2023 Developer Survey, Python ranks second as the most desired language.
+Python gained popularity when it became the go-to language for statistical analysis, data transformations, and machine learning.
+However, Python falls short of being the most popular language when it comes to speed. Nevertheless, Python can integrate with other languages like C, Java, and Rust, which allows you to speed up your Python code. Typically, Python extensions are written in the C language, but lately, they have been extended using Rust due to its obvious rise in popularity.">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        João Neves
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/" title="Home page">
+              Home
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/cv/" title="CV page">
+              CV
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/blog/" title="Blog page">
+              Blog
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Blogs
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Speed up your Python code with Rust</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-09-05T21:09:00+01:00">September 5, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="motivation">Motivation</h2>
+<p>Python is a widely used language. According to the <a href="https://survey.stackoverflow.co/2023/#section-admired-and-desired-programming-scripting-and-markup-languages">Stack Overflow 2023 Developer Survey</a>, Python ranks second as the most desired language.</p>
+<p>Python gained popularity when it became the go-to language for statistical analysis, data transformations, and machine learning.</p>
+<p>However, Python falls short of being the most popular language when it comes to speed. Nevertheless, Python can integrate with other languages like C, Java, and Rust, which allows you to speed up your Python code. Typically, Python extensions are written in the C language, but lately, they have been extended using Rust due to its obvious rise in popularity.</p>
+<p>In order to use Rust in Python, you need to make the compiled Rust code available for execution within Python. This integration can be done manually, but some tools have been developed to simplify this process. One of the most widely used tools for this purpose  is <a href="https://pyo3.rs/">PyO3</a>. PyO3 encapsulates your Rust code within a native Python module, making the process of generating bindings straightforward and entirely transparent. This allows you to speed-up your Python by some considerable order of magnitude.</p>
+<h2 id="how-to-integrate-rust-in-python">How to integrate Rust in Python?</h2>
+<h3 id="pre-requisites">Pre-requisites</h3>
+<p>First things first, you need to install <a href="https://www.rust-lang.org/tools/install">Rust</a> and Python of course. I recommend using <a href="https://github.com/pyenv/pyenv">Pyenv</a> (to manage Python versions) and <a href="https://python-poetry.org/">Poetry 1.5.1+</a> (to manage Python dependencies).</p>
+<p>Also, choose an IDE of your choice. I am sticking with <a href="https://code.visualstudio.com/">Visual Studio Code (VSCode)</a>.</p>
+<p>Please note that the following is beyond this scope:</p>
+<ul>
+<li>Configuring VSCode and your environment</li>
+<li>Deep diving Rust basics</li>
+<li>Packaging Python package with Rust dependencies (maybe in a future post :wink:)</li>
+<li>Walkthrough for Windows systems</li>
+</ul>
+<h3 id="creating-a-project">Creating a project</h3>
+<p>To create the project, follow these steps:</p>
+<ul>
+<li><code>pyenv install 3.9.17</code> (feel free to install any other compatible version)</li>
+<li><code>mkdir python-rust-extensions &amp;&amp; cd python-rust-extensions</code></li>
+<li><code>pyenv local 3.9.17</code></li>
+<li><code>poetry init</code></li>
+<li><code>cargo new src</code></li>
+<li>(Optional) <code>git init</code></li>
+</ul>
+<h3 id="configuring-the-project">Configuring the project</h3>
+<h4 id="rust-side">Rust side</h4>
+<p>Edit <code>Cargo.toml</code> file and add the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">lib</span>]
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The name of the native library. This is the name which will be used in Python to import the</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># library (i.e. `import string_sum`). If you change this, you must also change the name of the</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># `#[pymodule]` in `src/lib.rs`.</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;rust_extensions&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># &#34;cdylib&#34; is necessary to produce a shared library for Python to import from.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Downstream Rust code (including code in `bin/`, `examples/`, and `tests/`) will not be able</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># to `use string_sum;` unless the &#34;rlib&#34; or &#34;lib&#34; crate type is also included, e.g.:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># crate-type = [&#34;cdylib&#34;, &#34;rlib&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">crate-type</span> = [<span style="color:#e6db74">&#34;cdylib&#34;</span>]
+</span></span></code></pre></div><p>This will ensure that the output when compiling Rust code will have the right format to be used in Python. Also, if you want to use your Rust code as a library within Rust, you need to add <code>rlib</code> as well.</p>
+<p>Finally, run <code>cargo add pyo3</code> to add the PyO3 dependency to the Rust project.</p>
+<p>Your final <code>Cargo.toml</code> should look like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">package</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;src&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">version</span> = <span style="color:#e6db74">&#34;0.1.0&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">edition</span> = <span style="color:#e6db74">&#34;2023&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">lib</span>]
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The name of the native library. This is the name which will be used in Python to import the</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># library (i.e. `import string_sum`). If you change this, you must also change the name of the</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># `#[pymodule]` in `src/lib.rs`.</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;rust_extensions&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># &#34;cdylib&#34; is necessary to produce a shared library for Python to import from.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Downstream Rust code (including code in `bin/`, `examples/`, and `tests/`) will not be able</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># to `use string_sum;` unless the &#34;rlib&#34; or &#34;lib&#34; crate type is also included, e.g.:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># crate-type = [&#34;cdylib&#34;, &#34;rlib&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">crate-type</span> = [<span style="color:#e6db74">&#34;cdylib&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">dependencies</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pyo3</span> = { <span style="color:#a6e22e">version</span> = <span style="color:#e6db74">&#34;0.19.2&#34;</span>, <span style="color:#a6e22e">features</span> = [<span style="color:#e6db74">&#34;extension-module&#34;</span>] }
+</span></span></code></pre></div><h4 id="python-side">Python side</h4>
+<p>On Python side, we will only add a benchmark library so that we can compare built-in Python with Rust equivalent implementation. Given that, just add pytest benchmark library <code>poetry add pytest-benchmark -G dev</code>. <code>-G dev</code> adds a dependency to a dev group to separate it from the project dependencies. Feel free to add it to any other group.</p>
+<p>Your <code>project.toml</code> file should look something like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">tool</span>.<span style="color:#a6e22e">poetry</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;python-rust-extensions&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">version</span> = ...
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">description</span> = <span style="color:#e6db74">&#34;Repository to integrate Python with Rust&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">authors</span> = [...]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">tool</span>.<span style="color:#a6e22e">poetry</span>.<span style="color:#a6e22e">dependencies</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">python</span> = <span style="color:#e6db74">&#34;^3.9&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">tool</span>.<span style="color:#a6e22e">poetry</span>.<span style="color:#a6e22e">group</span>.<span style="color:#a6e22e">dev</span>.<span style="color:#a6e22e">dependencies</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pytest-benchmark</span> = <span style="color:#e6db74">&#34;^4.0.0&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">build-system</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">requires</span> = [<span style="color:#e6db74">&#34;poetry-core&#34;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">build-backend</span> = <span style="color:#e6db74">&#34;poetry.core.masonry.api&#34;</span>
+</span></span></code></pre></div><p>At this point you should have a function Python + Rust project.</p>
+<h3 id="writing-some-code">Writing some code</h3>
+<p>Let&rsquo;s start with a basic task.</p>
+<h4 id="getting-the-n-th-fibonacci-number">Getting the n-th Fibonacci number</h4>
+<p>The Fibonacci sequence is defined as the sum of the previous two numbers. This first two number of the sequence are 0 and 1 by definition. Which means that the <strong>3rd</strong> is <code>0 + 1 = 1</code>.</p>
+<p>In Python, this function would be defined as follow:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># python_rust_extensions/main.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">py_fibonacci</span>(n: int) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Check if n is 0; if so, return 0 (the 0th Fibonacci number).</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Check if n is 1; if so, return 1 (the 1st Fibonacci number).</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># If n is greater than 1, calculate the Fibonacci number iteratively.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Start with the initial values for the first two Fibonacci numbers.</span>
+</span></span><span style="display:flex;"><span>    prev <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>  <span style="color:#75715e"># The (n-2)th Fibonacci number</span>
+</span></span><span style="display:flex;"><span>    curr <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>  <span style="color:#75715e"># The (n-1)th Fibonacci number</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Loop from 2 to n (inclusive) to calculate the nth Fibonacci number.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>, n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>        next_num <span style="color:#f92672">=</span> prev <span style="color:#f92672">+</span> curr  <span style="color:#75715e"># Calculate the next Fibonacci number.</span>
+</span></span><span style="display:flex;"><span>        prev <span style="color:#f92672">=</span> curr  <span style="color:#75715e"># Update the (n-2)th Fibonacci number.</span>
+</span></span><span style="display:flex;"><span>        curr <span style="color:#f92672">=</span> next_num  <span style="color:#75715e"># Update the (n-1)th Fibonacci number.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Return the calculated nth Fibonacci number.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> curr
+</span></span></code></pre></div><p>In Rust, this function would be defined as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span># src<span style="color:#f92672">/</span>lib.rs
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Import the necessary PyO3 traits and macros for Python integration.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">use</span> pyo3::prelude::<span style="color:#f92672">*</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Define a Python function named &#34;fibonacci&#34; that takes an unsigned 32-bit integer &#34;n&#34; as input
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// and returns an unsigned 64-bit integer (the Fibonacci number).
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#[pyfunction]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">fibonacci</span>(n: <span style="color:#66d9ef">u32</span>) -&gt; <span style="color:#66d9ef">u64</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Check if n is 0; if so, return 0 (the 0th Fibonacci number).
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Check if n is 1; if so, return 1 (the 1st Fibonacci number).
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Initialize two mutable variables to keep track of the previous and current Fibonacci numbers.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> prev <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;  <span style="color:#75715e">// The (n-2)th Fibonacci number
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> curr <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;  <span style="color:#75715e">// The (n-1)th Fibonacci number
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Use a for loop to calculate the nth Fibonacci number iteratively.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// Start the loop from 2 (since we&#39;ve already handled cases for n = 0 and n = 1).
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> _ <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">..=</span>n {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Calculate the next Fibonacci number by adding the previous two numbers.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">let</span> next <span style="color:#f92672">=</span> prev <span style="color:#f92672">+</span> curr;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Update &#34;prev&#34; to store the previous Fibonacci number.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        prev <span style="color:#f92672">=</span> curr;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Update &#34;curr&#34; to store the current Fibonacci number.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        curr <span style="color:#f92672">=</span> next;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Return the calculated nth Fibonacci number (stored in &#34;curr&#34;).
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    curr
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This implementation is quite similar to the Python one. Feel free to deep-dive in the comments to understand the Rust implementation.</p>
+<h4 id="compiling-rust-code-to-used-in-python">Compiling rust code to used in Python</h4>
+<p>To compile the Rust code and produce a bytecode artifact execute the following in your terminal: <code>cargo build --release</code>. This builds the Rust code ready for release (without any debugging options which would slow down Rust).</p>
+<p>This will create <code>target/release/librust_extensions.so</code>. Now, copy that file to the project root: <code>cp target/release/librust_extensions.so ./rust_extensions.so</code>.</p>
+<h4 id="importing-rust-code-in-python">Importing Rust code in Python</h4>
+<p>Now, in <code>python_rust_extensions/main.py</code> file you can import <code>rust_extensions</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> rust_extensions
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">py_fibonacci</span>(n: int) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
+</span></span></code></pre></div><h4 id="comparing-both-versions">Comparing both versions</h4>
+<p>Now let&rsquo;s leverage <code>pytest-benchmark</code> to compare both versions.</p>
+<p>Add the following Python code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> rust_extensions
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> pytest_benchmark.fixture <span style="color:#f92672">import</span> BenchmarkFixture
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">py_fibonacci</span>(n: int) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_py_fibonacci</span>(benchmark: BenchmarkFixture):
+</span></span><span style="display:flex;"><span>    benchmark<span style="color:#f92672">.</span>pedantic(py_fibonacci, (<span style="color:#ae81ff">10_000</span>,), rounds<span style="color:#f92672">=</span><span style="color:#ae81ff">1_000</span>, iterations<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_rust_fibonacci</span>(benchmark: BenchmarkFixture):
+</span></span><span style="display:flex;"><span>    benchmark<span style="color:#f92672">.</span>pedantic(
+</span></span><span style="display:flex;"><span>        rust_extensions<span style="color:#f92672">.</span>fibonacci,
+</span></span><span style="display:flex;"><span>        (<span style="color:#ae81ff">10_000</span>,),
+</span></span><span style="display:flex;"><span>        rounds<span style="color:#f92672">=</span><span style="color:#ae81ff">1_000</span>,
+</span></span><span style="display:flex;"><span>        iterations<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>    )
+</span></span></code></pre></div><p>Then execute in your terminal: <code>pytest -sv --benchmark-sort=fullname python_rust_extensions/main.py</code></p>
+<p>The terminal shows the following results:</p>
+<pre tabindex="0"><code class="language-command-line" data-lang="command-line">------------------------------------------------------------------------------------------- benchmark: 2 tests ------------------------------------------------------------------------------------------
+Name (time in us)            Min                   Max                  Mean              StdDev                Median                IQR            Outliers           OPS            Rounds  Iterations
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+test_py_fibonacci       985.0408 (196.27)   1,801.8745 (176.73)   1,051.7682 (158.35)   126.3029 (74.59)    1,006.3533 (186.42)   45.3969 (13.88)      76;104      950.7798 (0.01)       1000          10
+test_rust_fibonacci       5.0188 (1.0)         10.1959 (1.0)          6.6419 (1.0)        1.6932 (1.0)          5.3984 (1.0)       3.2706 (1.0)         284;0  150,559.7812 (1.0)        1000          10
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+</code></pre><p>As you can see, Rust code is immensily faster that built-in Python code. You can try to change the test parameters by yourself (<code>rounds</code> and <code>iterations</code>) to do some tests.</p>
+<h2 id="wrap-up">Wrap-Up</h2>
+<p>In this blog post, we explored a powerful strategy for enhancing the performance of Python code by integrating Rust, a high-performance systems programming language. Python is renowned for its simplicity and versatility, making it a favorite among developers. However, it often falls short in terms of raw execution speed, particularly for compute-intensive tasks.</p>
+<p>To address this limitation, we delved into the world of Rust, a language celebrated for its speed and memory safety. By combining Python and Rust, we can leverage the strengths of both languages to create blazing-fast Python applications.</p>
+<p>Here are the key takeaways:</p>
+<h3 id="1-motivation">1. Motivation</h3>
+<p>Python is widely admired for its readability and ease of use, making it a top choice for various applications. However, when it comes to tasks demanding high computational performance, Python might not be the optimal choice.</p>
+<h3 id="2-integrating-rust-with-python">2. Integrating Rust with Python</h3>
+<p>We introduced the concept of integrating Rust with Python and discussed how this synergy can significantly boost the execution speed of Python code. Rust&rsquo;s compatibility with Python allows us to seamlessly bridge the gap between high-level scripting and low-level systems programming.</p>
+<h3 id="3-the-role-of-pyo3">3. The Role of PyO3</h3>
+<p>PyO3, a popular tool in this context, simplifies the integration process. It encapsulates Rust code within native Python modules, streamlining the creation of Python bindings. PyO3 enables you to accelerate your Python code by orders of magnitude, thanks to Rust&rsquo;s exceptional performance.</p>
+<h3 id="4-setting-up-your-environment">4. Setting Up Your Environment</h3>
+<p>We provided essential prerequisites for this integration, including the installation of Rust and Python, and suggested tools such as Pyenv and Poetry for version management and dependency handling. We also recommended using an Integrated Development Environment (IDE) like Visual Studio Code (VSCode) for a smoother coding experience.</p>
+<h3 id="5-project-creation-and-configuration">5. Project Creation and Configuration</h3>
+<p>We guided you through the process of creating a Python + Rust project, including setting up project directories, initializing the project with Poetry, and configuring the Rust side by editing the <code>Cargo.toml</code> file to ensure compatibility with Python.</p>
+<h3 id="6-writing-code-in-both-languages">6. Writing Code in Both Languages</h3>
+<p>We demonstrated how to write equivalent Fibonacci number calculation functions in both Python and Rust. This comparison allowed us to highlight the syntax and approaches in each language.</p>
+<h3 id="7-compiling-rust-code-for-python">7. Compiling Rust Code for Python</h3>
+<p>You learned how to compile Rust code to produce a bytecode artifact ready for Python integration. We discussed how to generate the shared library and import it into your Python project.</p>
+<h3 id="8-benchmarking-python-and-rust">8. Benchmarking Python and Rust</h3>
+<p>Finally, we explored the significance of benchmarking to assess the performance improvements achieved by integrating Rust. Using the <code>pytest-benchmark</code> library, we compared execution times between the Python and Rust implementations, showcasing the substantial speed gains offered by Rust.</p>
+<p>In conclusion, the marriage of Python and Rust offers a compelling solution for developers seeking to optimize their Python code without sacrificing readability and maintainability. By tapping into Rust&rsquo;s speed and Python&rsquo;s flexibility, you can embark on a journey of enhanced performance and efficiency in your Python projects.</p>
+<p>So why wait? Start integrating Rust with Python today and unlock the full potential of your Python applications!</p>
+<p>Happy coding!</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://github.com/jonsnowseven/python-rust-extensions.git">Repository example</a></li>
+</ul>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
+    &copy;  João Neves 2024 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
