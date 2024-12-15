@@ -1,7 +1,7 @@
 baseURL = "https://jonsnowseven.github.io/"
 languageCode = 'en-us'
 title = 'João Neves'
-theme = 'ananke'
+theme = "ananke"
 
 [menu]
   [[menu.main]]
