@@ -10,7 +10,17 @@ order: 3
 
 # 👨‍💻 Professional Experience
 
-## Senior ML Engineer @ [Farfetch](https://www.farfetch.com/), Lisbon *(June 2022-Present)*
+## Advanced Software Engineer @ [Feedzai](https://www.feedzai.com/), Lisbon *(February 2024-Present)*
+
+Conduct cutting-edge research in computer systems, including operating systems, distributed systems, and networked systems.
+
+* Design and develop company-wide Machine Learning systems
+* Collaborate with cross-functional teams to integrate research findings into practical applications and products.
+* Publish research findings in top-tier conferences and journals.
+* Stay updated with the latest advancements in systems research and incorporate relevant technologies into ongoing projects.
+* **Technologies used**: Kubernetes, Kafka, Quarkus, Flux, Java
+
+## Senior ML Engineer @ [Farfetch](https://www.farfetch.com/), Lisbon *(June 2022-February 2024)*
 
 Design and implement **recommendation systems** to improve the User experience in the Marketplace
 
@@ -19,7 +29,7 @@ Design and implement **recommendation systems** to improve the User experience i
 * Design and implement recommendation systems to improve the User Experience
 * Produce resilient, high-available and scalable systems to host ML models (e.g., APIs).
 * Support ML development by implementing Data Engineering systems
-* **Technologies used**: Large Language Models (LLM), MLflow, PySpark, Pandas (Software), Kafka, Kubernetes, Azure Databricks,  Airflow, Python, Flask 
+* **Technologies used**: Large Language Models (LLM), MLflow, PySpark, Pandas (Software), Kafka, Kubernetes, Azure Databricks, Airflow, Python, Flask
 
 ## Lead Tech Engineer & ML Engineer @ [Siemens](https://www.siemens.com/global/en.html), Lisbon *(January 2019-June 2022)*
 
@@ -72,13 +82,13 @@ Description: [Link](https://fenix.tecnico.ulisboa.pt/cursos/mma/dissertacao/2353
 # ⌨️ Programming Skills
 
 | Name       | Level     | Scope                            |
-| ---------- | --------- | -------------------------------- |
+| ---------- | --------- | ---------------------------------|
 | Python     | 🟢 Working | Daily basis usage                |
+| Java       | 🟢 Working | Daily basis usage                |
 | Scala      | 🟡 Average | Used in previous projects        |
 | SQL        | 🟡 Average | Used in previous projects        |
 | R          | 🟡 Average | Main language used in University |
 | Rust       | 🔴 Amateur | Only reading skills              |
-| Java       | 🔴 Amateur | Only reading skills              |
 | HTML       | 🔴 Amateur | Only reading skills              |
 | CSS        | 🔴 Amateur | Only reading skills              |
 | JavaScript | 🔴 Amateur | Only reading skills              |
