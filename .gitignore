@@ -1,28 +1,13 @@
-# hidden files
-.*
-!.git*
-!.editorconfig
-!.nojekyll
-!.husky
-!.commitlintrc.json
-!.versionrc.json
-!.stylelintrc.json
+# Generated files by hugo
+/public/
+/resources/_gen/
+/assets/jsconfig.json
+hugo_stats.json
 
-# bundler cache
-_site
-vendor
-_site
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-vendor
+# Executable may be added to repository
+hugo.exe
+hugo.darwin
+hugo.linux
 
-# rubygem
-*.gem
-
-# npm dependencies
-node_modules
-package-lock.json
-
-# static files
-public/
+# Temporary lock file while building
+/.hugo_build.lock

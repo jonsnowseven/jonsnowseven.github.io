@@ -1,5 +1,17 @@
 ---
-title: "Welcome to My CV"
+title           : "João Neves Website"
+description     : "João Neves Website"
+disableTitleSeparator : true
 ---
 
-Hi, I'm [Your Name], and this is my professional website. Here you can find my [CV](cv/) and [blog posts](blog/).
+<div style="text-align: center"> 
+Hi! I am João Neves
+</div>
+
+![alt text](/assets/images/profile-picture.jpeg "Title")
+
+<To fill>
+
+---
+{{< social >}}
+
