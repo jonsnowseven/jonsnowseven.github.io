@@ -8,10 +8,9 @@ disableTitleSeparator : true
 Hi! I am João Neves
 </div>
 
-![alt text](/assets/images/profile-picture.jpeg "Title")
+![alt text](/profile-picture.jpeg "Title")
 
-<To fill>
+To fill
 
 ---
 {{< social >}}
-

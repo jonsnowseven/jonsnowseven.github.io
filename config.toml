@@ -5,7 +5,8 @@ theme = "color-your-world"
 # googleAnalytics = "..."
 enableRobotsTXT = true
 
-paginate = 100
+[pagination]
+pagerSize = 100
 
 [markup.goldmark.renderer]
 unsafe = true
@@ -16,7 +17,9 @@ unsafe = true
 description = "João Neves's personal website"
 
 # Author
-author = "João Neves"
+[params.author]
+name = "João Neves"
+email = "joaojdneves@gmail.com"
 
 [params.style]
 # Dark mode as default
