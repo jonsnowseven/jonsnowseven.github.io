@@ -38,7 +38,7 @@ presets = ["#ffd700"]
 github = ["jonsnowseven"]
 linkedin = ["jonsnow7"]
 x = ["@7_snow_storm"]
-stackOverflow = [ "j-snow" ]
+stackOverflow = [ "9828765/j-snow" ]
 #entry         = [ "username", "label (optional)" ]
 
 # The "entry" here IS important. It's used to load the data.
