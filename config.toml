@@ -37,7 +37,8 @@ presets = ["#ffd700"]
 [params.social.centralized]
 github = ["jonsnowseven"]
 linkedin = ["jonsnow7"]
-x-twitter = ["@7_snow_storm"]
+x = ["@7_snow_storm"]
+stackOverflow = [ "j-snow" ]
 #entry         = [ "username", "label (optional)" ]
 
 # The "entry" here IS important. It's used to load the data.
