@@ -1,0 +1,10 @@
+.round-frame {
+    border-radius: 50%;
+    width: 150px;
+    /* Adjust the size as needed */
+    height: 150px;
+    /* Adjust the size as needed */
+    object-fit: cover;
+    border: 2px solid #000;
+    /* Optional: Add a border */
+}

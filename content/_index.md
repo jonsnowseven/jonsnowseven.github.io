@@ -8,9 +8,9 @@ disableTitleSeparator : true
 Hi! I am João Neves
 </div>
 
-![alt text](/profile-picture.jpeg "Title")
+<img src="/profile-picture.jpeg" alt="Profile Picture" class="round-frame">
 
-To fill
+I work mainly as a Machine Learning Cloud Engineer throughout my carrer. Check out my CV and blog posts to find out more about my work.
 
 ---
 {{< social >}}
