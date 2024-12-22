@@ -14,3 +14,6 @@ I primarily work as a Machine Learning Cloud Engineer throughout my career. Feel
 
 ---
 {{< social >}}
+
+---
+ <a href="/cv.pdf" download>Download CV</a>
