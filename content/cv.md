@@ -1,16 +1,18 @@
----
-layout: page
-title: About João Neves
-permalink: /about/
-icon: fas fa-info-circle
-order: 3
+# João Neves
+
+![profile-picture](../content/profile-picture.jpeg)
+
 ---
 
-![profile-picture](/profile-picture.jpeg)
+## 📇 Contacts
 
-# 👨‍💻 Professional Experience
+[**LinkedIn**](https://www.linkedin.com/in/jonsnow7/) | [**X/Twitter**](https://twitter.com/7_snow_storm) | [**Github**](https://github.com/jonsnowseven) | [**Website**](https://jonsnowseven.github.io/) | [**Email**](mailto:joaojdneves@gmail.com)
 
-## Advanced Software Engineer @ [Feedzai](https://www.feedzai.com/), Lisbon *(February 2024-Present)*
+---
+
+## 👨‍💻 Professional Experience
+
+### Advanced Software Engineer @ [Feedzai](https://www.feedzai.com/), Lisbon *(February 2024-Present)*
 
 Conduct cutting-edge research in computer systems, including operating systems, distributed systems, and networked systems.
 
@@ -18,9 +20,9 @@ Conduct cutting-edge research in computer systems, including operating systems, 
 * Collaborate with cross-functional teams to integrate research findings into practical applications and products.
 * Publish research findings in top-tier conferences and journals.
 * Stay updated with the latest advancements in systems research and incorporate relevant technologies into ongoing projects.
-* **Technologies used**: Kubernetes, Kafka, Quarkus, Flux, Java
+* **Technologies used**: Docker, Kubernetes, Kafka, Quarkus, Flux, Java
 
-## Senior ML Engineer @ [Farfetch](https://www.farfetch.com/), Lisbon *(June 2022-February 2024)*
+### Senior ML Engineer @ [Farfetch](https://www.farfetch.com/), Lisbon *(June 2022-February 2024)*
 
 Design and implement **recommendation systems** to improve the User experience in the Marketplace
 
@@ -31,7 +33,7 @@ Design and implement **recommendation systems** to improve the User experience i
 * Support ML development by implementing Data Engineering systems
 * **Technologies used**: Large Language Models (LLM), MLflow, PySpark, Pandas (Software), Kafka, Kubernetes, Azure Databricks, Airflow, Python, Flask
 
-## Lead Tech Engineer & ML Engineer @ [Siemens](https://www.siemens.com/global/en.html), Lisbon *(January 2019-June 2022)*
+### Lead Tech Engineer & ML Engineer @ [Siemens](https://www.siemens.com/global/en.html), Lisbon *(January 2019-June 2022)*
 
 Design and implement detection and analytics **cloud-based ML systems for CyberSecurity**
 
@@ -42,7 +44,7 @@ Design and implement detection and analytics **cloud-based ML systems for CyberS
 * Data Lake query costs optimization system
 * **Technologies used**: AWS Cloud Services, Git, PyTorch, Python, Scala, Serverless Framework, Spark, Terraform
 
-## Data Scientist/Data Engineer @ [Marionete](https://marionete.co.uk/), Lisbon *(October 2016–December 2018)*
+### Data Scientist/Data Engineer @ [Marionete](https://marionete.co.uk/), Lisbon *(October 2016–December 2018)*
 
 Design and implement Machine Learning use cases
 
@@ -51,7 +53,7 @@ Design and implement Machine Learning use cases
 * Malware detection engine (**Technologies used**: AWS Cloud Services, Keras, Python, Scala, Spark)
 * Partner trainer certified by Cloudera
 
-## Software Engineer @ [SISCOG](https://www.siscog.pt/pt/), Lisbon *(September 2013–September 2016)*
+### Software Engineer @ [SISCOG](https://www.siscog.pt/pt/), Lisbon *(September 2013–September 2016)*
 
 Model the domain of processes of planning railroad resources
 
@@ -59,32 +61,36 @@ Model the domain of processes of planning railroad resources
 * Part of a development team for a new product with recent clients
 * **Technologies used**: Lisp, ACL
 
-# 🎙 Public Speaking
+---
+
+## 🎤 Public Speaking
 
 * [Big Things Conference](https://www.bigthingsconference.com/2019/schedule/from-euros-to-zero-using-probabilistic-data-structures-to-reduce-costs/) - **From euros to zero: using Probabilistic Data Structures to reduce costs**, Madrid *(November 2020)*
 * [MXNet Deep Learning Meetup](https://www.meetup.com/Deep-Learning-with-Apache-MXNet-Berlin/events/258325821/) - **AI vs Malware: Threat Intelligence @ Work**, Berlin *(February 2019)*
 * [Seminário Diagonal IST](https://math.tecnico.ulisboa.pt/seminars/diagonal/?action=show&id=2647) - **Variable Selection in Football Squads**, Lisbon *(November 2011)*
 
-# 📚 Education
+---
+
+## 📚 Education
 
 * **Master (MSc) in Mathematics and Applications (Probabilistic and
 Statistics)** @ Técnico, Universidade Técnica de Lisboa, Lisbon *(2011-2013)*
 * **Degree (BSc) in Applied Mathematics and Computation** @ Técnico, Universidade Técnica de Lisboa, Lisbon *(2007-2011)*
 
-## 📜 Master Thesis
+### 📜 Master Thesis
 
-Title: **The effect of an imperfect ground-truth in the evaluation of the performance of classifiers**
+* **Title**: The effect of an imperfect ground-truth in the evaluation of the performance of classifiers
+* **Supervisors**: Prof. Maria do Rosário Oliveira
+* **Description**: [Link](https://fenix.tecnico.ulisboa.pt/cursos/mma/dissertacao/2353642465848)
 
-Supervisors: Prof. Maria do Rosário Oliveira
+---
 
-Description: [Link](https://fenix.tecnico.ulisboa.pt/cursos/mma/dissertacao/2353642465848)
-
-# ⌨️ Programming Skills
+## ⌨️ Programming Skills
 
 | Name       | Level     | Scope                            |
 | ---------- | --------- | ---------------------------------|
-| Python     | 🟢 Working | Daily basis usage                |
-| Java       | 🟢 Working | Daily basis usage                |
+| Python     | 🟢 Advanced | Daily basis usage                |
+| Java       | 🟢 Advanced | Daily basis usage                |
 | Scala      | 🟡 Average | Used in previous projects        |
 | SQL        | 🟡 Average | Used in previous projects        |
 | R          | 🟡 Average | Main language used in University |
@@ -102,19 +108,17 @@ Description: [Link](https://fenix.tecnico.ulisboa.pt/cursos/mma/dissertacao/2353
 * **VCS**: Git, Github, Bitbucket, Gitlab
 * **IDE**: Pycharm, Visual Studio Code, Intellij -->
 
-# 🌎 Languages
+---
+
+## 🌎 Languages
 
 | Lang       | Level              | Scope            |
 | ---------- | ------------------ | ---------------- |
 | Portuguese | Proficient         | Native           |
 | English    | Upper-intermediate | Working language |
 
-# 🎨 Interests
+## 🎨 Interests
 
 * 🎮 Games: Playing games is an excellent way to relax
 * ⚽️ Football: Everything
 * 📺 Audiovisual Art: Films and TV Shows
-
-# Links
-
-[LinkedIn](https://www.linkedin.com/in/jonsnow7/) | [Twitter](https://twitter.com/7_snow_storm) | [Github](https://github.com/jonsnowseven) | [Website](https://jonsnowseven.github.io/) | [Email](mailto:joaojdneves@gmail.com)
