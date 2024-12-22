@@ -1,6 +1,6 @@
 ---
-title           : "João Neves Website"
-description     : "João Neves Website"
+title           : "João Neves' Website"
+description     : "João Neves' Website"
 disableTitleSeparator : true
 ---
 
@@ -10,7 +10,7 @@ Hi! I am João Neves
 
 <img src="/profile-picture.jpeg" alt="Profile Picture" class="round-frame">
 
-I work mainly as a Machine Learning Cloud Engineer throughout my carrer. Check out my CV and blog posts to find out more about my work.
+I primarily work as a Machine Learning Cloud Engineer throughout my career. Feel free to explore my CV and blog posts to learn more about my work.
 
 ---
 {{< social >}}
