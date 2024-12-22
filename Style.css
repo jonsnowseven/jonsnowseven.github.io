@@ -1,0 +1,142 @@
+/* General settings */
+body {
+    font-family: Verdana, sans-serif;
+    background-color: white;
+    color: black;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Remove headers and footers */
+@page {
+    margin: 1in;
+}
+
+header,
+footer {
+    display: none;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: black;
+    font-weight: bold;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.75em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+h4 {
+    font-size: 1.25em;
+}
+
+h5,
+h6 {
+    font-size: 1em;
+}
+
+/* Paragraphs */
+p {
+    margin: 0.5em 0;
+}
+
+/* Links */
+a {
+    color: gold;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Code blocks */
+pre,
+code {
+    background-color: #f5f5f5;
+    color: black;
+    font-family: "Courier New", Courier, monospace;
+    padding: 0.2em 0.4em;
+    border-radius: 5px;
+}
+
+pre {
+    padding: 1em;
+    overflow-x: auto;
+}
+
+code {
+    display: inline-block;
+}
+
+/* Lists */
+ul,
+ol {
+    margin: 1em 0;
+    padding-left: 2em;
+}
+
+ul li {
+    list-style-type: disc;
+}
+
+ol li {
+    list-style-type: decimal;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 5px solid gold;
+    padding-left: 1em;
+    margin-left: 0;
+    color: #555;
+    font-style: italic;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    margin: 1em 0;
+    width: 100%;
+}
+
+th,
+td {
+    border: 1px solid gold;
+    padding: 0.5em;
+    text-align: left;
+}
+
+th {
+    background-color: gold;
+    color: black;
+    font-weight: bold;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+/* Horizontal Rules */
+hr {
+    border: 0;
+    border-top: 1px solid gold;
+    margin: 2em 0;
+}
