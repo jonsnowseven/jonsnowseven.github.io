@@ -1,6 +1,6 @@
 # João Neves
 
-![Profile Picture](./profile-picture.jpeg)
+![Profile Picture](/profile-picture.jpeg)
 
 ---
 
