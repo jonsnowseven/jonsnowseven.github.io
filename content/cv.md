@@ -95,8 +95,6 @@ Statistics)** @ Técnico, Universidade Técnica de Lisboa, Lisbon *(2011-2013)*
 | SQL        | 🟡 Average | Used in previous projects        |
 | R          | 🟡 Average | Main language used in University |
 | Rust       | 🔴 Amateur | Only reading skills              |
-| HTML       | 🔴 Amateur | Only reading skills              |
-| CSS        | 🔴 Amateur | Only reading skills              |
 | JavaScript | 🔴 Amateur | Only reading skills              |
 | C          | 🔴 Amateur | One academic project             |
 
