@@ -16,7 +16,17 @@
 
 Conduct cutting-edge research in computer systems, including operating systems, distributed systems, and networked systems.
 
-* Designed, developed, and operated a company-wide **Data Platform** encompassing Data Lake, real-time and batch Data Pipelines, Schema Management & Governance, Data Catalog, Metadata & Lineage tracking, Data Quality frameworks, Query Engines (SQL/Presto/Spark), Orchestration (Airflow/K8s), Monitoring & Observability, and secure access controls — enabling reliable ingestion, storage, discovery, and analytics across the organization
+* Designed, developed, and operated a company-wide **Data Platform** enabling reliable ingestion, storage, discovery, and analytics across the organization:
+  * Data Lake
+  * Real-time and batch Data Pipelines
+  * Schema Management & Governance
+  * Data Catalog
+  * Metadata & Lineage tracking
+  * Data Quality frameworks
+  * Query Engines (SQL/Presto/Spark)
+  * Orchestration (Airflow/K8s)
+  * Monitoring & Observability
+  * Secure access controls
 * Design and develop company-wide **Machine Learning** systems
 * Collaborate with cross-functional teams to integrate research findings into practical applications and products.
 * Publish research findings in top-tier conferences and journals.
