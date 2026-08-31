@@ -1,6 +1,6 @@
 ---
 title           : "João Neves' Website"
-description     : "João Neves — Advanced Software Engineer building data platforms and ML systems."
+description     : "João Neves — Engineering Manager leading data platform and ML teams."
 disableTitleSeparator : true
 ---
 
@@ -10,10 +10,10 @@ disableTitleSeparator : true
 
 <h1 class="hero-name">João Neves</h1>
 
-<p class="hero-tagline" data-typewriter data-text="Advanced Software Engineer · Data Platforms · Machine Learning"></p>
+<p class="hero-tagline" data-typewriter data-text="Engineering Manager · Data Platforms · Machine Learning"></p>
 
 <p class="hero-intro reveal">
-I build data platforms and ML systems — from real-time pipelines to recommendation engines to CyberSecurity detection systems. Currently doing systems research at <a href="https://www.feedzai.com/" target="_blank" rel="noopener">Feedzai</a> in Lisbon.
+I lead engineering teams building data platforms and ML systems — from real-time pipelines to recommendation engines to CyberSecurity detection systems. Currently leading the Data Platform team at <a href="https://www.feedzai.com/" target="_blank" rel="noopener">Feedzai</a> in Lisbon.
 </p>
 
 <div class="hero-actions reveal">
