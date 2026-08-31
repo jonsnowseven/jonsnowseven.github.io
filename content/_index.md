@@ -19,7 +19,6 @@ I build data platforms and ML systems — from real-time pipelines to recommenda
 <div class="hero-actions reveal">
   <a class="button primary" href="/cv">View CV</a>
   <a class="button" href="/cv.pdf" download>Download CV</a>
-  <a class="button" href="/blog/">Read the Blog</a>
 </div>
 
 <div class="reveal">
