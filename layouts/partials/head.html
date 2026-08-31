@@ -45,18 +45,8 @@
 <!-- Open Graph / Twitter Card -->
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:title" content="{{ $basicTags.heading }}">
-<meta property="og:image" content="{{ if .Params.image }}{{.Site.BaseURL}}{{.Params.image}}
-{{ else }}
-  {{ .Params.ogimage }}
-{{
-  end
-}}">
-<meta name="twitter:image" content="{{ if .Params.image }}{{.Site.BaseURL}}{{.Params.image}}
-{{ else }}
-  {{ .Params.ogimage }}
-{{
-  end
-}}">
+<meta property="og:image" content="{{ if .Params.image }}{{ .Site.BaseURL }}{{ .Params.image }}{{ else }}{{ .Params.ogimage }}{{ end }}">
+<meta name="twitter:image" content="{{ if .Params.image }}{{ .Site.BaseURL }}{{ .Params.image }}{{ else }}{{ .Params.ogimage }}{{ end }}">
 {{ with $basicTags.description }}<meta property="og:description" content="{{ . }}">{{ end }}
 
 

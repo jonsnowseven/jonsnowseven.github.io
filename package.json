@@ -1,0 +1,10 @@
+{
+  "name": "jonsnowseven-website",
+  "private": true,
+  "engines": {
+    "node": "20.x"
+  },
+  "dependencies": {
+    "google-auth-library": "^9.14.1"
+  }
+}

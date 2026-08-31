@@ -1,0 +1,130 @@
+// Site-specific styles + animations, loaded automatically by the theme
+// (see themes/color-your-world/assets/scss/main.scss's custom.scss hook).
+
+.round-frame {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 2px solid #000;
+}
+
+// --- Homepage hero ---------------------------------------------------
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+}
+
+.hero .round-frame {
+  width: 180px;
+  height: 180px;
+  border-color: var(--accent, #808000);
+  box-shadow: 0 0 0 4px rgba(128, 128, 0, 0.15);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.hero .round-frame:hover {
+  transform: scale(1.05) rotate(1deg);
+  box-shadow: 0 0 0 6px rgba(128, 128, 0, 0.25);
+}
+
+.hero-name {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0.25rem 0 0;
+}
+
+.hero-tagline {
+  min-height: 1.6em;
+  font-size: 1.15rem;
+  opacity: 0.85;
+}
+
+.hero-tagline::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  margin-left: 2px;
+  background: currentColor;
+  animation: blink 1s step-start infinite;
+}
+
+.hero-tagline.done::after {
+  animation: none;
+  opacity: 0;
+}
+
+.hero-intro {
+  max-width: 42rem;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.hero-actions .button {
+  display: inline-block;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.hero-actions .button:hover {
+  transform: translateY(-2px);
+  background-color: rgba(128, 128, 0, 0.12);
+}
+
+.hero-actions .button.primary {
+  background-color: var(--accent, #808000);
+  color: #111;
+  border-color: transparent;
+}
+
+// --- Scroll-reveal + entrance transitions -----------------------------
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .round-frame,
+  .hero-actions .button {
+    transition: none;
+  }
+
+  .hero .round-frame:hover {
+    transform: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero-tagline::after {
+    animation: none;
+  }
+}

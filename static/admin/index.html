@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>CV Admin</title>
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<style>
+  :root { color-scheme: light dark; }
+  body { font-family: system-ui, sans-serif; max-width: 60rem; margin: 2rem auto; padding: 0 1rem; }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; }
+  #status { min-height: 1.4em; font-size: 0.9rem; opacity: 0.8; }
+  #status.error { color: #c0392b; opacity: 1; }
+  .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  textarea { width: 100%; height: 70vh; box-sizing: border-box; font-family: ui-monospace, monospace; font-size: 0.9rem; padding: 0.75rem; }
+  #preview { border: 1px solid #8888; padding: 0.75rem; height: 70vh; overflow: auto; box-sizing: border-box; }
+  button { padding: 0.5rem 1.2rem; font-size: 1rem; cursor: pointer; }
+  #editor-area { display: none; }
+  @media (max-width: 60rem) { .columns { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>CV Admin</h1>
+  <div id="auth-area"></div>
+</header>
+
+<p id="status"></p>
+
+<div id="editor-area">
+  <div class="columns">
+    <textarea id="editor" spellcheck="false"></textarea>
+    <div id="preview"></div>
+  </div>
+  <p>
+    <button id="save-btn">Save</button>
+  </p>
+</div>
+
+<script>
+(function () {
+  var idToken = null;
+  var currentSha = null;
+  var statusEl = document.getElementById("status");
+  var authArea = document.getElementById("auth-area");
+  var editorArea = document.getElementById("editor-area");
+  var editor = document.getElementById("editor");
+  var preview = document.getElementById("preview");
+  var saveBtn = document.getElementById("save-btn");
+
+  function setStatus(msg, isError) {
+    statusEl.textContent = msg || "";
+    statusEl.className = isError ? "error" : "";
+  }
+
+  function renderPreview() {
+    preview.innerHTML = window.marked.parse(editor.value);
+  }
+
+  async function loadCv() {
+    setStatus("Loading CV…");
+    var res = await fetch("/api/cv", {
+      headers: { Authorization: "Bearer " + idToken },
+    });
+    var data = await res.json();
+    if (!res.ok) {
+      setStatus(data.error || "Failed to load CV", true);
+      return;
+    }
+    editor.value = data.content;
+    currentSha = data.sha;
+    editorArea.style.display = "block";
+    renderPreview();
+    setStatus("Loaded.");
+  }
+
+  async function saveCv() {
+    setStatus("Saving…");
+    saveBtn.disabled = true;
+    try {
+      var res = await fetch("/api/save", {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + idToken,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ content: editor.value, sha: currentSha }),
+      });
+      var data = await res.json();
+      if (!res.ok) {
+        setStatus(data.error || "Failed to save", true);
+        return;
+      }
+      currentSha = data.sha;
+      setStatus("Saved. Deploy will follow automatically.");
+    } finally {
+      saveBtn.disabled = false;
+    }
+  }
+
+  function onCredential(response) {
+    idToken = response.credential;
+    authArea.innerHTML = "<span>Signed in</span>";
+    loadCv();
+  }
+  window.onCredential = onCredential;
+
+  editor && editor.addEventListener("input", renderPreview);
+  saveBtn.addEventListener("click", saveCv);
+
+  fetch("/api/config")
+    .then(function (r) { return r.json(); })
+    .then(function (cfg) {
+      if (!cfg.googleClientId) {
+        setStatus("Server is missing GOOGLE_CLIENT_ID configuration.", true);
+        return;
+      }
+      var script = document.createElement("script");
+      script.src = "https://accounts.google.com/gsi/client";
+      script.async = true;
+      script.defer = true;
+      script.onload = function () {
+        google.accounts.id.initialize({
+          client_id: cfg.googleClientId,
+          callback: onCredential,
+        });
+        google.accounts.id.renderButton(authArea, { theme: "outline", size: "medium" });
+      };
+      document.head.appendChild(script);
+    })
+    .catch(function () {
+      setStatus("Could not reach the server.", true);
+    });
+})();
+</script>
+
+</body>
+</html>
