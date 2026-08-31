@@ -12,7 +12,17 @@
 
 ## 👨‍💻 Professional Experience
 
-### Advanced Software Engineer @ [Feedzai](https://www.feedzai.com/), Lisbon *(February 2024-Present)*
+### Engineering Manager @ [Feedzai](https://www.feedzai.com/), Lisbon *(March 2026-Present)*
+
+Lead the Data Platform team, the same team I helped build as an Advanced Software Engineer, now focused on growing the team and steering its technical direction.
+
+* Manage and mentor the engineering team responsible for the company-wide **Data Platform** (Data Lake, Data Pipelines, Schema Management & Governance, Data Catalog, Metadata & Lineage, Data Quality, Query Engines, Orchestration, Monitoring & Observability, Secure access controls)
+* Own team roadmap and delivery, balancing platform reliability work with new capabilities for downstream ML and analytics teams
+* Hire, mentor, and grow engineers; run performance reviews and career development
+* Partner with cross-functional stakeholders (Product, ML, Security) to align platform investment with company priorities
+* Maintain technical depth by staying close to architecture decisions and systems research the team produces
+
+### Advanced Software Engineer @ [Feedzai](https://www.feedzai.com/), Lisbon *(February 2024-March 2026)*
 
 Conduct cutting-edge research in computer systems, including operating systems, distributed systems, and networked systems.
 
