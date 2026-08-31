@@ -6,7 +6,7 @@
 
 ## 📇 Contacts
 
-[**LinkedIn**](https://www.linkedin.com/in/jonsnow7/) | [**X/Twitter**](https://twitter.com/7_snow_storm) | [**Github**](https://github.com/jonsnowseven) | [**Website**](https://jonsnowseven.github.io/) | [**Email**](mailto:joaojdneves@gmail.com)
+[**LinkedIn**](https://www.linkedin.com/in/jonsnow7/) | [**X/Twitter**](https://twitter.com/7_snow_storm) | [**Github**](https://github.com/jonsnowseven) | [**Website**](https://jonsnowseven-github-io.vercel.app/) | [**Email**](mailto:joaojdneves@gmail.com)
 
 ---
 
@@ -31,7 +31,7 @@ Conduct cutting-edge research in computer systems, including operating systems, 
 * Collaborate with cross-functional teams to integrate research findings into practical applications and products.
 * Publish research findings in top-tier conferences and journals.
 * Stay updated with the latest advancements in systems research and incorporate relevant technologies into ongoing projects.
-* **Technologies used**: Docker, Kubernetes, Kafka, Quarkus, Flux, Java, Airflow, Nessie, Iceberg
+* **Technologies used**: Docker, Kubernetes, Kafka, Quarkus, Flux, Java, Airflow, Nessie, Iceberg, Trino
 
 ### Senior ML Engineer @ [Farfetch](https://www.farfetch.com/), Lisbon *(June 2022-February 2024)*
 

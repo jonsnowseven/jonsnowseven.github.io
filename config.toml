@@ -1,4 +1,4 @@
-baseURL = 'https://jonsnowseven.github.io/'
+baseURL = 'https://jonsnowseven-github-io.vercel.app/'
 languageCode = 'en-us'
 title = ''
 theme = "color-your-world"
