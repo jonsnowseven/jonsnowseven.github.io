@@ -45,13 +45,3 @@ stackOverflow = [ "9828765/j-snow" ]
 
 [params.social.decentralized]
 # The "entry" here ISN'T important. It's used for nothing.
-
-[menu]
-[[menu.main]]
-name = "Home"
-weight = 1
-url = "/"
-[[menu.main]]
-name = "CV"
-weight = 2
-url = "cv"

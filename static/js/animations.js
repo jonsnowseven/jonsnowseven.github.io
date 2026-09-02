@@ -55,8 +55,70 @@
     });
   }
 
+  function initAutoPrint() {
+    if (new URLSearchParams(window.location.search).get("print") === "1") {
+      window.print();
+    }
+  }
+
+  function initScrollSpy() {
+    var links = document.querySelectorAll("[data-nav-link]");
+    if (!links.length || !("IntersectionObserver" in window)) return;
+
+    var sections = [];
+    links.forEach(function (link) {
+      var section = document.querySelector(link.getAttribute("href"));
+      if (section) sections.push(section);
+    });
+    if (!sections.length) return;
+
+    var setActive = function (id) {
+      links.forEach(function (link) {
+        link.classList.toggle("is-active", link.getAttribute("href") === "#" + id);
+      });
+    };
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: "-40% 0px -50% 0px", threshold: 0 }
+    );
+
+    sections.forEach(function (section) {
+      observer.observe(section);
+    });
+  }
+
+  function initSpotlight() {
+    var portfolio = document.querySelector(".portfolio");
+    if (!portfolio || reduceMotion || !window.matchMedia("(pointer: fine)").matches) return;
+
+    var spot = document.createElement("div");
+    spot.className = "portfolio-spotlight";
+    document.body.appendChild(spot);
+
+    var pending = false;
+    window.addEventListener("mousemove", function (e) {
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(function () {
+        spot.style.background =
+          "radial-gradient(600px at " + e.clientX + "px " + e.clientY + "px, " +
+          "color-mix(in srgb, var(--accent) 12%, transparent), transparent 80%)";
+        spot.classList.add("is-active");
+        pending = false;
+      });
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initTypewriter();
     initScrollReveal();
+    initAutoPrint();
+    initScrollSpy();
+    initSpotlight();
   });
 })();

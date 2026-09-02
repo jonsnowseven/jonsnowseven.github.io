@@ -1,94 +1,475 @@
 // Site-specific styles + animations, loaded automatically by the theme
 // (see themes/color-your-world/assets/scss/main.scss's custom.scss hook).
 
-.round-frame {
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border: 2px solid #000;
+// Accent used only in print output: the theme's screen accent (gold/olive)
+// is too light against a printed white page, so print gets its own
+// higher-contrast tone instead.
+$print-accent: #7a5c00;
+
+// The site is a single-page portfolio now — hide the theme's top nav bar
+// entirely (it only ever pointed at pages that no longer exist).
+header {
+  display: none !important;
 }
 
-// --- Homepage hero ---------------------------------------------------
+// --- Homepage portfolio layout (see DESIGN.md) --------------------------
 
-.hero {
+$portfolio-font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+$portfolio-breakpoint: 900px;
+
+main.index {
+  max-width: 1160px;
+}
+
+.portfolio {
+  font-family: $portfolio-font;
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-sidebar {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0.75rem;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
 }
 
-.hero .round-frame {
-  width: 180px;
-  height: 180px;
-  border-color: var(--accent, #808000);
-  box-shadow: 0 0 0 4px rgba(128, 128, 0, 0.15);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+.round-frame {
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-.hero .round-frame:hover {
-  transform: scale(1.05) rotate(1deg);
-  box-shadow: 0 0 0 6px rgba(128, 128, 0, 0.25);
+.portfolio-identity .round-frame {
+  width: 84px;
+  height: 84px;
+  margin-bottom: 1rem;
+  border: 2px solid var(--accent);
 }
 
-.hero-name {
-  font-size: 2rem;
+.portfolio-identity h1 {
+  font-size: 2.1rem;
   font-weight: 700;
-  margin: 0.25rem 0 0;
+  letter-spacing: -0.02em;
+  margin: 0;
 }
 
-.hero-tagline {
-  min-height: 1.6em;
-  font-size: 1.15rem;
+.portfolio-role {
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin: 0.5rem 0 0;
+}
+
+.portfolio-pitch {
+  max-width: 24rem;
+  opacity: 0.7;
+  line-height: 1.6;
+  margin: 1rem 0 0;
+}
+
+.portfolio-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.portfolio-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.6;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.portfolio-nav-link:hover,
+.portfolio-nav-link.is-active {
+  opacity: 1;
+}
+
+.portfolio-nav-link.is-active {
+  color: var(--accent);
+}
+
+.portfolio-nav-line {
+  width: 2rem;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.2s ease, background-color 0.2s ease;
+}
+
+.portfolio-nav-link:hover .portfolio-nav-line,
+.portfolio-nav-link.is-active .portfolio-nav-line {
+  width: 3.5rem;
+  background: var(--accent);
+}
+
+// Simplified, icon-only social links (theme's default ".social" is a
+// grid of large accent-colored badges with text labels; this pares it
+// down to a compact monochrome row, scoped so the rest of the site's
+// ".btn"/".social" usage elsewhere is untouched).
+.portfolio-socials .social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0;
+}
+
+.portfolio-socials .social a {
+  display: inline-flex;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--fg);
+  transition: color 0.2s ease;
+}
+
+.portfolio-socials .social a:hover {
+  color: var(--accent);
+}
+
+.portfolio-socials .social svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+  stroke: none;
   opacity: 0.85;
 }
 
-.hero-tagline::after {
-  content: "";
+.portfolio-socials .social a:hover svg {
+  opacity: 1;
+}
+
+.portfolio-socials .social p {
+  display: none;
+}
+
+.print-cv-btn {
+  align-self: flex-start;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.print-cv-btn:hover {
+  background-color: var(--bgmod);
+}
+
+.portfolio-section-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.55;
+  margin: 0 0 1.75rem;
+}
+
+.portfolio-section {
+  margin-bottom: 4rem;
+}
+
+.portfolio-section p {
+  line-height: 1.7;
+}
+
+// Experience
+
+.exp-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.exp-card {
+  position: relative;
+  padding: 1rem;
+  margin: 0 -1rem;
+  border-radius: 10px;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.exp-card:hover {
+  background: var(--bgmod);
+}
+
+.exp-list:hover .exp-card:not(:hover) {
+  opacity: 0.55;
+}
+
+.exp-date {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.55;
+  margin-bottom: 0.3rem;
+}
+
+.exp-title {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.exp-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.exp-card:hover .exp-title a {
+  color: var(--accent);
+}
+
+.exp-arrow {
   display: inline-block;
-  width: 2px;
-  margin-left: 2px;
-  background: currentColor;
-  animation: blink 1s step-start infinite;
+  transition: transform 0.2s ease;
 }
 
-.hero-tagline.done::after {
-  animation: none;
-  opacity: 0;
+.exp-card:hover .exp-arrow,
+.speaking-item:hover .exp-arrow {
+  transform: translate(2px, -2px);
 }
 
-.hero-intro {
-  max-width: 42rem;
-  line-height: 1.6;
+.exp-body > p {
+  opacity: 0.75;
+  margin: 0 0 0.6rem;
+  font-style: italic;
 }
 
-.hero-actions {
+// The theme only draws its own bullet marker for a <ul> that's a direct
+// child of <article> — ours sits inside a nested .exp-body div, so that
+// rule never matches and no marker (not even a hidden one) gets drawn.
+// Define our own instead of depending on that fragile nesting depth.
+.exp-body ul {
+  margin: 0 0 0.75rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.exp-body li {
+  position: relative;
+  margin: 0.3rem 0;
+  padding-left: 1.1rem;
+  font-size: 0.92rem;
+  opacity: 0.85;
+}
+
+.exp-body li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.exp-body strong {
+  color: var(--accent);
+}
+
+.exp-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  justify-content: center;
-  margin-top: 0.5rem;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
 }
 
-.hero-actions .button {
-  display: inline-block;
-  padding: 0.55rem 1.1rem;
+.pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
   border-radius: 999px;
-  border: 1px solid currentColor;
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
+}
+
+// Public Speaking
+
+.speaking-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.speaking-item {
+  padding: 0.85rem 1rem;
+  margin: 0 -1rem;
+  border-radius: 10px;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.speaking-item:hover {
+  background: var(--bgmod);
+}
+
+.speaking-list:hover .speaking-item:not(:hover) {
+  opacity: 0.55;
+}
+
+.speaking-date {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.55;
+  margin-bottom: 0.3rem;
+}
+
+.speaking-title {
+  font-weight: 600;
+  color: inherit;
   text-decoration: none;
-  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.hero-actions .button:hover {
-  transform: translateY(-2px);
-  background-color: rgba(128, 128, 0, 0.12);
+.speaking-item:hover .speaking-title {
+  color: var(--accent);
 }
 
-.hero-actions .button.primary {
-  background-color: var(--accent, #808000);
-  color: #111;
-  border-color: transparent;
+.speaking-venue {
+  margin: 0.25rem 0 0;
+  opacity: 0.65;
+  font-size: 0.9rem;
+}
+
+// Education
+
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.education-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.education-date {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.55;
+}
+
+.education-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.education-org {
+  margin: 0;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.education-thesis {
+  opacity: 0.8;
+  font-size: 0.92rem;
+}
+
+.education-thesis strong {
+  color: var(--accent);
+}
+
+// Skills / Interests
+
+.skills-group {
+  margin-bottom: 1.25rem;
+}
+
+.skills-group-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.55;
+  margin: 0 0 0.6rem;
+}
+
+// Radial cursor spotlight overlay (desktop only, see animations.js)
+.portfolio-spotlight {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.portfolio-spotlight.is-active {
+  opacity: 1;
+}
+
+@media (min-width: $portfolio-breakpoint) {
+  .portfolio {
+    display: flex;
+    align-items: flex-start;
+    gap: 4rem;
+  }
+
+  .portfolio-sidebar {
+    position: sticky;
+    top: 3rem;
+    width: 34%;
+    min-width: 260px;
+    max-height: calc(100vh - 6rem);
+    margin-bottom: 0;
+    justify-content: space-between;
+  }
+
+  .portfolio-main {
+    width: 66%;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .exp-card {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    gap: 0 1.25rem;
+  }
+
+  .exp-date {
+    margin-bottom: 0;
+    padding-top: 0.15rem;
+  }
+
+  .speaking-item {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    gap: 0 1.25rem;
+  }
+
+  .speaking-date {
+    margin-bottom: 0;
+    padding-top: 0.1rem;
+  }
+
+  .education-item {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1.25rem;
+  }
+
+  .education-date {
+    flex: 0 0 7.5rem;
+  }
 }
 
 // --- Scroll-reveal + entrance transitions -----------------------------
@@ -104,27 +485,100 @@
   transform: none;
 }
 
-@keyframes blink {
-  50% { opacity: 0; }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .hero .round-frame,
-  .hero-actions .button {
-    transition: none;
-  }
-
-  .hero .round-frame:hover {
-    transform: none;
-  }
-
   .reveal {
     opacity: 1;
     transform: none;
     transition: none;
   }
 
-  .hero-tagline::after {
-    animation: none;
+  .portfolio-spotlight {
+    display: none;
+  }
+}
+
+// --- Print / "export to PDF" ---------------------------------------------
+
+@page {
+  margin: 0.75in;
+}
+
+@media print {
+  // Force print-safe values onto the theme's own color variables (instead
+  // of chasing every selector individually) — the page otherwise stays in
+  // whatever dark/light mode was active on screen, since the data-mode
+  // attribute doesn't change for print. This alone fixes link, heading,
+  // border and bullet colors everywhere on the page.
+  html {
+    --bg: #fff;
+    --fg: #111;
+    --bgmod: #ddd;
+    --accent: #{$print-accent};
+  }
+
+  header, footer, nav, .no-print {
+    display: none !important;
+  }
+
+  // The theme draws list bullets as colored background boxes (not native
+  // markers), and browsers skip background colors when printing unless
+  // told otherwise — without this, bullet points silently vanish.
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  body {
+    background: #fff;
+    color: #111;
+  }
+
+  // Collapse the sticky two-column layout into a single printable flow.
+  .portfolio {
+    display: block;
+  }
+
+  .portfolio-sidebar {
+    position: static;
+    max-height: none;
+    width: auto;
+    margin-bottom: 2rem;
+  }
+
+  .portfolio-main {
+    width: auto;
+  }
+
+  .portfolio-spotlight {
+    display: none;
+  }
+
+  // Reveal animation hides not-yet-scrolled-to sections (opacity:0 until
+  // an IntersectionObserver fires) — print captures live DOM state, so
+  // without this override, printing shows only whatever had already
+  // scrolled into view before "Save as PDF" was clicked.
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  // Muted/low-opacity text reads fine on screen against surrounding
+  // context, but goes illegibly faint on paper — bump it back up.
+  .portfolio * {
+    opacity: 1 !important;
+  }
+
+  .portfolio-identity .round-frame {
+    width: 96px;
+    height: 96px;
+    box-shadow: none;
+  }
+
+  .exp-card,
+  .speaking-item,
+  .education-item,
+  .skills-group {
+    break-inside: avoid;
   }
 }
