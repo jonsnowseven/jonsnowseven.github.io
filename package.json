@@ -1,6 +1,9 @@
 {
   "name": "jonsnowseven-website",
   "private": true,
+  "scripts": {
+    "dev": "hugo server -D --disableFastRender"
+  },
   "engines": {
     "node": "20.x"
   },
