@@ -13,7 +13,7 @@ disableTitleSeparator : true
 <p class="hero-tagline" data-typewriter data-text="Engineering Manager · Data Platforms · Machine Learning"></p>
 
 <p class="hero-intro reveal">
-I lead engineering teams building data platforms and ML systems — from real-time pipelines to recommendation engines to CyberSecurity detection systems. Currently leading the Data Platform team at <a href="https://www.feedzai.com/" target="_blank" rel="noopener">Feedzai</a> in Lisbon.
+I lead the Data Platform engineering team at <a href="https://www.feedzai.com/" target="_blank" rel="noopener">Feedzai</a> in Lisbon — the same team I helped build as an individual contributor before stepping into management. Before that, I spent close to a decade as a software and ML engineer, building recommendation systems, ML-based CyberSecurity detection, and data platforms at companies including Farfetch and Siemens.
 </p>
 
 <div class="hero-actions reveal">
