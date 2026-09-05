@@ -61,9 +61,13 @@ disableTitleSeparator : true
 
 <h2 class="portfolio-section-title">About</h2>
 
-I'm an Engineering Manager based in Lisbon, currently leading the Data Platform team at [Feedzai](https://www.feedzai.com/) — the same team I helped build from the ground up as an individual contributor. My path here started in mathematics and statistics, and led through nearly a decade of hands-on work: recommendation systems, ML-based CyberSecurity detection, and large-scale data platforms.
+I'm an Engineering Manager based in Lisbon, currently managing a data platform engineering team that I joined as an individual contributor before moving into management. My path here started in mathematics and statistics, and led through nearly a decade of hands-on work: recommendation systems, ML-based CyberSecurity detection, and large-scale data platforms.
 
-These days I care most about growing engineers, staying close to technical depth even while managing, and building platforms that make other teams faster. Outside of work, I unwind with games, football, and a good film or TV show.
+I'd describe myself as persistent, honest, and friendly — when I run into a hard problem, I don't rest until it's solved.
+
+These days I care most about growing engineers, staying close to technical depth even while managing, and building platforms that make other teams faster.
+
+Outside of work: yes, I'm about to say the most cliché line in every bio ever written — right up there with Uncle Ben's "great power, great responsibility" — but I genuinely love spending time with my family, it's the best part of my day. Past that, you'll find me deep in a game, watching football, or catching up on whatever show everyone's talking about.
 
 </section>
 
