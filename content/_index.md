@@ -61,9 +61,9 @@ disableTitleSeparator : true
 
 <h2 class="portfolio-section-title">About</h2>
 
-I'm an Engineering Manager based in Lisbon, currently managing a data platform engineering team that I joined as an individual contributor before moving into management. My path here started in mathematics and statistics, and led through nearly a decade of hands-on work: recommendation systems, ML-based CyberSecurity detection, and large-scale data platforms.
+I'm an **Engineering Manager** based in Lisbon, currently managing a **data platform** engineering team that I joined as an individual contributor before moving into management. My path here started in mathematics and statistics, and led through nearly a decade of hands-on work: recommendation systems, ML-based CyberSecurity detection, and large-scale data platforms.
 
-I'd describe myself as persistent, honest, and friendly — when I run into a hard problem, I don't rest until it's solved.
+I'd describe myself as **persistent, honest, and friendly** — when I run into a hard problem, I don't rest until it's solved.
 
 These days I care most about growing engineers, staying close to technical depth even while managing, and building platforms that make other teams faster.
 
@@ -83,7 +83,7 @@ Outside of work: yes, I'm about to say the most cliché line in every bio ever w
 
 <h3 class="exp-title"><a href="https://www.feedzai.com/" target="_blank" rel="noopener">Engineering Manager @ Feedzai <span class="exp-arrow">↗</span></a></h3>
 
-Lead the Data Platform team, the same team I helped build as an Advanced Software Engineer, now focused on growing the team and steering its technical direction.
+Lead the Data Platform team I previously contributed to as an Advanced Software Engineer, now focused on growing the team and steering its technical direction.
 
 * Manage and mentor the engineering team responsible for the company-wide **Data Platform** (Data Lake, Data Pipelines, Schema Management & Governance, Data Catalog, Metadata & Lineage, Data Quality, Query Engines, Orchestration, Monitoring & Observability, Secure access controls)
 * Own team roadmap and delivery, balancing platform reliability work with new capabilities for downstream ML and analytics teams
@@ -264,21 +264,21 @@ Modeled the domain of processes for planning railroad resources.
 <div class="skills-group">
 <p class="skills-group-label">Advanced</p>
 <div class="exp-pills">
-<span class="pill">Python</span><span class="pill">Java</span>
+<span class="pill pill-strong">Python</span><span class="pill pill-strong">Java</span>
 </div>
 </div>
 
 <div class="skills-group">
 <p class="skills-group-label">Working proficiency</p>
 <div class="exp-pills">
-<span class="pill">Scala</span><span class="pill">SQL</span><span class="pill">R</span>
+<span class="pill pill-medium">Scala</span><span class="pill pill-medium">SQL</span><span class="pill pill-medium">R</span>
 </div>
 </div>
 
 <div class="skills-group">
 <p class="skills-group-label">Familiar</p>
 <div class="exp-pills">
-<span class="pill">Rust</span><span class="pill">JavaScript</span><span class="pill">C</span>
+<span class="pill pill-light">Rust</span><span class="pill pill-light">JavaScript</span><span class="pill pill-light">C</span>
 </div>
 </div>
 
@@ -296,7 +296,7 @@ Modeled the domain of processes for planning railroad resources.
 <h2 class="portfolio-section-title">Interests</h2>
 
 <div class="exp-pills">
-<span class="pill">🎮 Games</span><span class="pill">⚽ Football</span><span class="pill">📺 Film &amp; TV</span>
+<span class="pill">👨‍👩‍👧‍👦 Family</span><span class="pill">🎮 Games</span><span class="pill">⚽ Football</span><span class="pill">📺 Film &amp; TV</span>
 </div>
 
 </section>

@@ -61,7 +61,7 @@ main.index {
 
 .portfolio-pitch {
   max-width: 24rem;
-  opacity: 0.7;
+  opacity: 0.85;
   line-height: 1.6;
   margin: 1rem 0 0;
 }
@@ -184,6 +184,10 @@ main.index {
   line-height: 1.7;
 }
 
+.portfolio-section p strong {
+  color: var(--accent);
+}
+
 // Experience
 
 .exp-list {
@@ -242,7 +246,7 @@ main.index {
 }
 
 .exp-body > p {
-  opacity: 0.75;
+  opacity: 0.9;
   margin: 0 0 0.6rem;
   font-style: italic;
 }
@@ -262,7 +266,7 @@ main.index {
   margin: 0.3rem 0;
   padding-left: 1.1rem;
   font-size: 0.92rem;
-  opacity: 0.85;
+  opacity: 0.95;
 }
 
 .exp-body li::before {
@@ -293,6 +297,24 @@ main.index {
   padding: 0.25rem 0.65rem;
   border-radius: 999px;
   background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
+}
+
+// Skill pills colored by proficiency level, strongest to lightest
+.pill-strong {
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 700;
+}
+
+.pill-medium {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  color: var(--accent);
+}
+
+.pill-light {
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
   color: var(--accent);
 }
 
@@ -339,7 +361,7 @@ main.index {
 
 .speaking-venue {
   margin: 0.25rem 0 0;
-  opacity: 0.65;
+  opacity: 0.8;
   font-size: 0.9rem;
 }
 
@@ -374,7 +396,7 @@ main.index {
 
 .education-org {
   margin: 0;
-  opacity: 0.7;
+  opacity: 0.85;
   font-size: 0.9rem;
 }
 
